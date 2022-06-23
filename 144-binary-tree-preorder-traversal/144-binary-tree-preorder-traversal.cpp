@@ -34,6 +34,7 @@ public:
 //         return ans;
 //     }
     
+//     =====>>>> recursive======<<<<<<============
     
     void preorder (TreeNode* root, vector<int> &ans){
         if(!root){
