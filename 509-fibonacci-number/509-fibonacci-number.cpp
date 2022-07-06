@@ -1,13 +1,22 @@
 class Solution {
 public:
-    int fib(int n) {
-        if(n==0){
+    int solve(int index,vector<int> &dp){
+        if(index==0){
             return 0;
         }
-        if(n==1){
+        if(index==1){
             return 1;
         }
-        int ans=fib(n-1)+fib(n-2);
-        return ans;
+        if(dp[index]!=-1){
+            return dp[index];
+        }
+        
+        int first=solve(index-1,dp);
+        int second=solve(index-2,dp);
+        return dp[index]=first+second;
+    }
+    int fib(int n) {
+        vector<int>dp(n+1,-1);
+        return solve(n,dp);
     }
 };
