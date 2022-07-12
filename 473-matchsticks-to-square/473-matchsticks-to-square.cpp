@@ -23,7 +23,7 @@ public:
       sum += matchsticks[i];
     }
 
-    if (sum % 4 != 0 or n < 4) return false;
+    if ( n < 4) return false;
 
     long target = sum / 4;
     sort(matchsticks.begin(), matchsticks.end());
