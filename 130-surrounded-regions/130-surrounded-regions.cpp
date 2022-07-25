@@ -21,11 +21,7 @@ public:
             dfs(board,i,j-1);
     }
     void solve(vector<vector<char>>& board) {
-        //boundary 0's and unse connected saare 0's kisi kaam ke nhi hai
-        //toh inhe pehle temporary '1' mark kr dunga
-        //uske baad jitne 0's bche means unhe hm convert kr skte h
-        //unhe hm 'X' kr denge
-        //ab jitne 1's rehgye means vo pehle '0' hi theh unhe wapis 'O' krdoo
+       
         
         int n=board.size();
         int m=board[0].size();
