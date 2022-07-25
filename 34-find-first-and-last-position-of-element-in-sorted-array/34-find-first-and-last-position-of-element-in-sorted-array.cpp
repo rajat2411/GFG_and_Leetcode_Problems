@@ -1,29 +1,29 @@
 class Solution {
 public:
+    int bsf(vector<int>& nums, int target){
+        int l=0, r=nums.size()-1, mid;
+        while(l<=r){
+            mid = (r-l)/2+l;
+            if(nums[mid]<target)l=mid+1;
+            else r=mid-1;
+        }
+        if(l==nums.size() || nums[l]!=target)return -1;
+        return l;
+    }
+    int bsl(vector<int>& nums, int target){
+        int l=0, r=nums.size()-1, mid;
+        while(l<=r){
+            mid = (r-l)/2+l;
+            if(nums[mid]>target)r=mid-1;
+            else l=mid+1;
+        }
+        if(r<0 || nums[r]!=target)return -1;
+        return r;
+    }
     vector<int> searchRange(vector<int>& nums, int target) {
-        vector<int>res;
-        for(int i=0;i<nums.size();i++){
-            if(nums[i]==target){
-
-            res.push_back(i);
-            break;
-            }
-            
-        }
-        for(int j=nums.size()-1;j>=0;j--){
-
-            if(nums[j]==target){
-
-            res.push_back(j);
-            break;
-            }
-            }
-        if(res.size()==0){
-            res.push_back(-1);
-            res.push_back(-1);
-
-        }
-        return res;
-        
+        vector<int>ans(2);
+        ans[0] = bsf(nums, target);
+        ans[1] = bsl(nums, target);
+        return ans;
     }
 };
