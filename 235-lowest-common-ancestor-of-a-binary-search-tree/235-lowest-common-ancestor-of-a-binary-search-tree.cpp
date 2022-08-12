@@ -12,7 +12,7 @@ class Solution {
 public:
     TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
          if(!root){
-            return NULL;
+            return root;
         }
         
         if(root->val < p->val && root->val< q->val){
@@ -22,7 +22,7 @@ public:
            return lowestCommonAncestor(root->left,p,q);
         }
         
-        
-            return root;
+        return root;
+            ;
     }
 };
