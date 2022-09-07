@@ -13,15 +13,39 @@ class Solution {
 public:
 //     reverse post order traversal 
 //     right left root
-    TreeNode* prev=NULL;
+    
+//     1st approach recursion 
+//     Tc O(n)
+//     Sc O(n)
+    // TreeNode* prev=NULL;
     void flatten(TreeNode* root) {
-        if(root==NULL)  return ;
-        flatten(root->right);
-        flatten(root->left);
+//         if(root==NULL)  return ;
+//         flatten(root->right);
+//         flatten(root->left);
         
-        root->right=prev;
-        root->left=NULL;
-        prev=root;
+//         root->right=prev;
+//         root->left=NULL;
+//         prev=root;
+        
+        
+//          Morris Order Approach 
+        TreeNode* curr=root;
+        while(curr!=NULL){
+            if(curr->left!=NULL){
+                TreeNode* prev=curr->left;
+                while(prev->right){
+    
+                prev=prev->right;
+                }
+                prev->right=curr->right;
+                curr->right=curr->left;
+                curr->left=NULL;
+            }
+            curr=curr->right;
+        }
         
     }
+    
+    
+    
 };
